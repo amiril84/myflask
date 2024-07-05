@@ -28,6 +28,16 @@ def coba():
     num_words = 100
     scraped_text = check_and_scrape(test_url, num_words)
     return jsonify({"scraped_text": scraped_text})
+    
+
+@app.route('/scrape')
+def scrape():
+    url = request.args.get('url')
+    num_words = int(request.args.get('num_words'))
+    if not url:
+        return jsonify({"error": "URL parameter is required"}), 400
+    scraped_text = check_and_scrape(url, num_words)
+    return jsonify({"scraped_text": scraped_text})
 
 if __name__ == '__main__':
   app.run(port=5000)
