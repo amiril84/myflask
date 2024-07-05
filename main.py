@@ -8,7 +8,7 @@ app = Flask(__name__)
 def index():
   return render_template('index.html')
 
-@app.route('/test', methods=['GET'])
+@app.route('/test')
 def test():
     test_url = "https://almanhaj.or.id/84056-jenis-jenis-ibadah-haji.html"
     num_words = 100
